@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('inbound_items', function (Blueprint $table) {
             $table->id();
-            $table->foreign('inbound_id')->references('id')->on('inbounds')->onDelete('Inbound');
-            $table->foreignId('item_id')->references('id')->on('items')->onDelete('Item');
+            // $table->integer('inbound_id')->unsigned();
+            $table->foreignId('inbound_id')->references('id')->on('inbounds')->onDelete('cascade');
+            // $table->integer('item_id')->unsigned();
+            $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('qty')->default(0);
             $table->timestamps();
         });

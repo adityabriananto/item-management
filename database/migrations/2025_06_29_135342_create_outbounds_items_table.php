@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inbounds', function (Blueprint $table) {
+        Schema::create('outbounds_items', function (Blueprint $table) {
             $table->id();
-            $table->string('inbound_code')->unique();
-            $table->integer('total_qty')->default(0 );
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();    
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inbounds');
+        Schema::dropIfExists('outbounds_items');
     }
 };
