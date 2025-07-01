@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inbound extends Model
+class Outbound extends Model
 {
     //
-    protected $table = "inbounds";
+    protected $table = "outbounds";
 
     protected $fillable = [
-        'inbound_code',
+        'outbound_code',
         'status',
         'total_qty',
         'created_by',

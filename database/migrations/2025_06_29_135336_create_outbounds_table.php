@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('outbounds', function (Blueprint $table) {
             $table->id();
+            $table->string('outbound_code')->unique();
+            $table->string('status')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();    
+            $table->softDeletes();
             $table->timestamps();
         });
     }

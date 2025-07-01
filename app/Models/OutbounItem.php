@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class InboundItem extends Model
+class OutbounItem extends Model
 {
     //
-    protected $table = "inbound_items";
+    protected $table = "outbound_items";
 
     protected $fillable = [
-        "inbound_id",
+        "outbound_id",
         "item_id",
         "qty"
     ];
 
-    public function inbound() : BelongsTo {
-        return $this->belongsTo(Inbound::class);
+    public function outbound() : BelongsTo {
+        return $this->belongsTo(Outbound::class);
     }
 
     public function item(): BelongsTo {

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('outbounds_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('outbound_id')->references('id')->on('outbounds')->onDelete('cascade');
+            $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->integer('qty')->default(0);
             $table->timestamps();
         });
     }
